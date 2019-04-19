@@ -21,18 +21,25 @@ ListNode* concat_list(ListNode* head1, ListNode* head2);
 
 int main()
 {
-	ListNode* head = NULL;
-	int i=0;
+	ListNode* head1 = NULL;
+	ListNode* head2 = NULL;
+	ListNode* head3 = NULL;
+	int i;
 	for(i=0;i<5;i++){
-		head = insert_first(head, i);
-		print_list(head);
+		head1 = insert_first(head1, i);
+		print_list(head1);
 	}
 	printf("\n");
-	get_entry(head, 3);
 	for(i=0;i<3;i++){
-		head = delete_first(head);
-		print_list(head);
+		head2 = insert_first(head2, i);
+		print_list(head2);
 	}
+	printf("\n");
+			print_list(head1);
+			print_list(head2);
+	printf("\n");
+	head1 = concat_list(head1, head2);
+	print_list(head1);
 //	clear(head);
 //	print_list(head);
 	return 0;
@@ -115,7 +122,7 @@ ListNode* concat_list(ListNode* head1, ListNode* head2){
 		return head1;
 	else{
 		ListNode* p = head1;
-		while(p!=NULL)
+		while(p->link!=NULL)
 			p=p->link;
 		p->link = head2;
 		return head1;
