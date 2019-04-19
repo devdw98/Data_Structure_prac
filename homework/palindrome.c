@@ -1,6 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
 #define INITIAL_SIZE 5
 
@@ -34,17 +32,17 @@ int palindrome(Deque* d, char* c){
 	init_deque(d);
 	int i, len;
 	len = strlen(c);
-	printf("%d\n",len);
+//	printf("%d\n",len);
 	for(i=0;i<len;i++){
 		add_rear(d,c[i]);
-		deque_print(d);
+	//	deque_print(d);
 	}
 	if(len%2==0){ //Â¦¼ö 
 		while(!is_empty(d)){
 			if(get_rear(d)==get_front(d)){
 				delete_rear(d);
 				delete_front(d);
-				deque_print(d);
+			//	deque_print(d);
 			}
 			else{
 				printf("\"%s\" isn't a palindrome string.\n",c);
@@ -57,7 +55,7 @@ int palindrome(Deque* d, char* c){
 			if(get_rear(d)==get_front(d)){
 				delete_rear(d);
 				delete_front(d);
-				deque_print(d);
+			//	deque_print(d);
 				if(absolute(d->front,d->rear) == 1)
 					break;
 			}
